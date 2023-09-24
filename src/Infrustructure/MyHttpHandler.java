@@ -1,7 +1,7 @@
 package Infrustructure;
 
-import app.CalcController;
-import app.RouteController;
+import app.CalcService;
+import app.RouteService;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -55,8 +55,8 @@ public class MyHttpHandler implements HttpHandler {
         }
         else System.out.println("No params");
 
-        RouteController.registerController("/calc", new CalcController());
-        String htmlResponse = RouteController.route("/calc", params);
+        RouteService routeServ = new RouteService();
+        String htmlResponse = routeServ.route("calc", params);
 
         httpExchange.sendResponseHeaders(htmlResponse == null ? 404 : 200 , htmlResponse.length());
 

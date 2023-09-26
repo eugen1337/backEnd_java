@@ -6,13 +6,12 @@ import java.util.Map;
 public class CalcService implements IService {
     private String path;
     public CalcService() {
-        path = "calc";
+        path = "/calc";
         System.out.println("Calc is ready");
     };
     @Override
     public String execute(Map<String, String> params) {
         String response = "";
-        System.out.println("before Calc");
 
         response = String.valueOf(
                 Model.calc(
@@ -20,7 +19,6 @@ public class CalcService implements IService {
                         Integer.valueOf(params.get("b"))
                 )
         );
-        System.out.println(response);
 
         return response;
     }

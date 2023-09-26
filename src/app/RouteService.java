@@ -9,9 +9,6 @@ public class RouteService {
         System.out.println("routeService()");
         serviceMap = RegisterService.registerServices();
     }
-    private IService getService(String purpose) {
-        return serviceMap.get(purpose);
-    }
 
     public String route(String path, Map<String, String> params) {
         IService bc = serviceMap.get(path);

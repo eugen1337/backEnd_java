@@ -5,7 +5,7 @@ import java.util.Map;
 public class LoginService implements IService {
     private String path;
     public LoginService() {
-        path = "login";
+        path = "/login";
         System.out.println("Login is ready");
     };
     @Override

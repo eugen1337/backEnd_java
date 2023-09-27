@@ -1,4 +1,6 @@
-package app;
+package app.services;
+
+import app.IService;
 
 import java.util.Map;
 

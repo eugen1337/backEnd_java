@@ -6,12 +6,16 @@ import java.net.InetSocketAddress;
 
 public class Server {
     public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress("localhost", 8001), 0);
+        try {
+            HttpServer server = HttpServer.create(new InetSocketAddress("localhost", 8001), 0);
+            String rootContext = "/";
+            server.createContext(rootContext, new MyHttpHandler());
 
-        server.createContext("/", new MyHttpHandler());
-
-        server.setExecutor(null);
-        server.start();
+            server.setExecutor(null);
+            server.start();
+        } catch (Exception ex) {
+            System.out.println("Error while starting server");
+        }
 
         System.out.println("Server started!");
     }

@@ -1,21 +1,14 @@
 package Infrustructure;
 
 import app.*;
-import app.services.TestService;
-
 public class Builder {
-    public static ITestService buildTestService() {
+    public static IApp buildApp() {
 
-        IDataBase db = new TestStorage();
+        IDataBase db = Infrustructure.storage.Factory.createTestStorage();
 
-        ITestService service = Factory.createTestService();
+        IApp service = app.Factory.createApp();
         ((IDataBaseUsing)service).useDB(db);
 
         return service;
-    }
-    public static IApp build(IDataBase db)
-    {
-        if (db != null) return new App(db);
-        else return new App();
     }
 }

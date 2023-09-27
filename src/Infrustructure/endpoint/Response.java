@@ -1,4 +1,4 @@
-package Infrustructure;
+package Infrustructure.endpoint;
 
 import java.util.Map;
 

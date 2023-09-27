@@ -1,8 +1,10 @@
-import Infrustructure.MyHttpHandler;
+import Infrustructure.http.MyHttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+
+//test url = http://localhost:8001/calc?a=30&b=40
 
 public class Server {
     public static void main(String[] args) throws IOException {

@@ -1,4 +1,4 @@
-package Infrustructure;
+package Infrustructure.endpoint;
 
 public enum Method {
     GET,

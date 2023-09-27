@@ -1,7 +1,7 @@
 package app.services;
 
 public class Services {
-    public IService[] getServices() {
+    public static IService[] getServices() {
         return new IService[] {new CalcService(), new LoginService()};
     }
 }

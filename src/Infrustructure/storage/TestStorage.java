@@ -1,4 +1,4 @@
-package Infrustructure;
+package Infrustructure.storage;
 
 import app.IDataBase;
 

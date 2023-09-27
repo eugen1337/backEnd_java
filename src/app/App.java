@@ -1,39 +1,30 @@
 package app;
 
+import app.IDataBase;
+import app.IDataBaseUsing;
+import app.IApp;
+import app.services.CalcService;
+import app.services.IService;
+import app.services.LoginService;
+
 import java.util.Map;
 
-public class App implements IApp {
+public class App implements IApp, IDataBaseUsing {
     private IDataBase db;
-    private RouteService router;
-
-    public App() {
-        router = new RouteService();
-    }
-
-    public App(IDataBase db) {
-        router = new RouteService();
-        setStorage(db);
-    }
-
-/*
     @Override
-    public boolean login(Map<String, String> values) {
-        return router.route("/login", values) == "ok";
+    public String login(int variant) {
+        IService loginServ = new LoginService();
+        return db.load("test");
     }
 
     @Override
-    public String calc(Map<String, String> values) {
-        return router.route("/calc", values);
-    }
-*/
-
-    public String execute(String path, Map<String, String> values) {
-        return router.route("/calc", values);
+    public String calc(Map<String, String> params) {
+        IService calcServ = new CalcService();
+        return calcServ.execute(params);
     }
 
     @Override
-    public void setStorage(IDataBase db) {
+    public void useDB(IDataBase db) {
         this.db = db;
     }
-
 }

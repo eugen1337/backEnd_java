@@ -1,6 +1,7 @@
 package Infrustructure;
 
 import app.IApp;
+import app.ITestService;
 import app.RouteService;
 
 import java.util.HashMap;
@@ -21,10 +22,9 @@ public class HttpController {
         }
         else System.out.println("No params");
 
-        //App without DB
-        IApp app = Builder.build(null);
+        ITestService testService = Builder.buildTestService();
 
-        return app.execute(path, params);
+        return testService.calc(params);
     }
 
 }

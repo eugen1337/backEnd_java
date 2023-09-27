@@ -1,5 +1,7 @@
 package app;
 
+import java.util.Map;
+
 public class App implements IApp {
     private IDataBase db;
     private RouteService router;
@@ -25,7 +27,7 @@ public class App implements IApp {
     }
 */
 
-    public String execute(String path, DTO values) {
+    public String execute(String path, Map<String, String> values) {
         return router.route("/calc", values);
     }
 

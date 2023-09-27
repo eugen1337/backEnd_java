@@ -1,4 +1,4 @@
-package app;
+package app.services;
 
 public class Services {
     public IService[] getServices() {

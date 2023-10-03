@@ -5,9 +5,9 @@ import app.IDataBase;
 public class Factory {
     private static IDataBase instance = null;
 
-    public static IDataBase createTestStorage() {
+    public static IDataBase createMongoStorage() {
         if (instance == null) {
-            instance = new TestStorage();
+            instance = new MongoDB();
         }
         return instance;
     }

@@ -9,31 +9,40 @@ import app.IApp;
 
 import java.util.HashMap;
 
-public class LoginController implements IController {
+public class TaskController implements IController {
     @Override
     public boolean isSupport(String path, Method method) {
-        //need
-        return true;
+        boolean flag = false;
+
+        if (path.equals("/tasks")) {
+            if (method == Method.GET || method == Method.POST ) {
+                flag = true;
+            }
+        }
+        System.out.println(method);
+
+        return flag;
     }
 
     @Override
     public Response service(Request request) {
+
         IApp app = Builder.buildApp();
         String resp;
 
         switch (request.method) {
             case POST:
-                resp = app.register(request.body);
+                resp = app.makeTask(request.body);
                 break;
             default:
-                resp = app.login(request.params);
+                resp = app.getTasks(request.params);
                 break;
         }
 
-        Response response  = new Response();
+        Response response = new Response();
         response.code = 200;
         response.headers = new HashMap<>();
-        response.headers.put("Content-Type","text/plain; charset=UTF-8");
+        response.headers.put("Content-Type", "text/plain; charset=UTF-8");
         response.body = resp;
 
         return response;

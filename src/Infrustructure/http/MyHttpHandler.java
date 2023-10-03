@@ -54,8 +54,6 @@ public class MyHttpHandler implements HttpHandler {
                 }
             }
 
-            System.out.println("request =" );
-            System.out.println(request);
             Response response = Router.route(request);
 
             if (response.headers != null && response.headers.isEmpty() != true) {

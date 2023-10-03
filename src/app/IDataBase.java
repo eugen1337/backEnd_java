@@ -1,6 +1,6 @@
 package app;
 
 public interface IDataBase {
-    public String save(String query);
-    public String load(String query);
+    boolean isRegistredUser(String login, String password);;
+    boolean addUser(String login, String password);
 }

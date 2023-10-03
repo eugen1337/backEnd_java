@@ -18,7 +18,6 @@ public class Server {
         } catch (Exception ex) {
             System.out.println("Error while starting server");
         }
-
         System.out.println("Server started!");
     }
 }

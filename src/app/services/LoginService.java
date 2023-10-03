@@ -15,7 +15,10 @@ public class LoginService implements IService {
         for (String key : params.keySet()) {
             response += params.get(key);
         }
+        System.out.println("login + pass = ");
+        System.out.println(response);
 
+        response = "ok";
         return response;
     }
 

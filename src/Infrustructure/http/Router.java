@@ -13,8 +13,10 @@ public class Router {
     }
 
     public static Response route(Request request) {
+        System.out.println("before get");
+        System.out.println(request.path);
         IController controller = controllerFactories.get(request.path).createInstance();
-
+        System.out.println("after get");
         Response response = null;
         if (controller.isSupport(request.path, request.method) && controller != null) {
             response = controller.service(request);

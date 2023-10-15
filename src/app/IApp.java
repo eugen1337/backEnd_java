@@ -1,15 +1,17 @@
 package app;
 
+import Infrustructure.User;
+
 import java.util.Map;
 
 public interface IApp {
-    String login(Map<String, String> params);
+    String login(String login, String password);
 
-    String register(String body);
+    String register(User user);
 
-    String calc(Map<String, String> params);
+    String calc(int a, int b);
 
-    String getTasks(Map<String, String> params);
+    String getTasks(String login);
 
     String makeTask(String body);
 }

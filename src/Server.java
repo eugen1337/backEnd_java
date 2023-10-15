@@ -1,4 +1,4 @@
-import Infrustructure.http.MyHttpHandler;
+/*import Infrustructure.http.MyHttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class Server {
         }
         System.out.println("Server started!");
     }
-}
+}*/
 
 
 

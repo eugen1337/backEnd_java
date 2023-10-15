@@ -1,3 +1,4 @@
+/*
 package Infrustructure.http;
 
 import Infrustructure.endpoint.Method;
@@ -89,7 +90,8 @@ public class MyHttpHandler implements HttpHandler {
 
     private void handleResponse(HttpExchange httpExchange, String requestParams) throws IOException {
         //entry point
-        /*HttpController controller = new HttpController();
+        */
+/*HttpController controller = new HttpController();
         String path = httpExchange.getRequestURI().toString().split("\\?")[0];
         System.out.println(path);
         String response = controller.execute(path, requestParams);
@@ -102,7 +104,9 @@ public class MyHttpHandler implements HttpHandler {
         outputStream.write(response.getBytes());
         outputStream.flush();
         outputStream.close();
-        System.out.println("htmlResponse is sent");*/
+        System.out.println("htmlResponse is sent");*//*
+
     }
 
 }
+*/

@@ -2,12 +2,10 @@ package Infrustructure.endpoint.controllers;
 
 import Infrustructure.endpoint.*;
 
-public class LoginControllerFactory implements IControllerFactory {
-    @Override
-    public IController createInstance() {
+public class LoginControllerFactory{
+    public LoginController createInstance() {
         return new LoginController() {};
     }
-    @Override
     public String getPath() {
         return "/login";
     }

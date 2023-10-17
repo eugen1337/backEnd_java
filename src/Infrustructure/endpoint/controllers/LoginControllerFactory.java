@@ -1,7 +1,5 @@
 package Infrustructure.endpoint.controllers;
 
-import Infrustructure.endpoint.*;
-
 public class LoginControllerFactory{
     public LoginController createInstance() {
         return new LoginController() {};

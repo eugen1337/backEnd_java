@@ -1,7 +1,7 @@
 package app;
 
 public class Factory {
-    public static App createApp() {
+    public static IApp createApp() {
         return new App();
     }
 }

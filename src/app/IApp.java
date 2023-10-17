@@ -1,5 +1,6 @@
 package app;
 
+import Infrustructure.Task;
 import Infrustructure.User;
 
 import java.util.Map;
@@ -13,5 +14,6 @@ public interface IApp {
 
     String getTasks(String login);
 
-    String makeTask(String body);
+    int createTask(Task task);
+    boolean deleteTask(int id);
 }

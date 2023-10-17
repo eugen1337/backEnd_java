@@ -14,30 +14,30 @@ import jakarta.ws.rs.core.Response;
 public class LoginController {
     @GET
     @Path("/")
-    @Produces("application/json")
+    @Produces("text/plain")
 
     public Response login(@QueryParam("login") String login, @QueryParam("password") String password) {
-        Jsonb jsonb = JsonbBuilder.create();
         try {
             IApp app = Builder.buildApp();
             String resp;
             String resultJSON;
             resp = app.login(login, password);
             if (resp != null) {
-                resultJSON = jsonb.toJson(resp);
+                resultJSON = resp;
+                System.out.println(resultJSON);
                 return Response.ok(resultJSON).build();
             } else {
                 throw new Exception("invalid credentials");
             }
         } catch (Exception e) {
-            return Response.status(Response.Status.BAD_REQUEST).entity(jsonb.toJson("Error login")).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity("Error login").build();
         }
     }
 
     @POST
     @Path("/")
     @Consumes("application/json")
-    @Produces("application/json")
+    @Produces("text/plain")
     public Response register(String strJSON) {
         Jsonb jsonb = JsonbBuilder.create();
         try {
@@ -47,13 +47,13 @@ public class LoginController {
             User user = jsonb.fromJson(strJSON, User.class);
             resp = app.register(user);
             if (resp != null) {
-                resultJSON = jsonb.toJson(resp);
+                resultJSON = resp;
                 return Response.ok(resultJSON).build();
             } else {
                 throw new Exception("invalid credentials");
             }
         } catch (Exception e) {
-            return Response.status(Response.Status.BAD_REQUEST).entity(jsonb.toJson("Error login")).build();
+            return Response.status(Response.Status.BAD_REQUEST).entity("Error login").build();
         }
     }
 

@@ -7,7 +7,6 @@ import java.io.IOException;
 
 @Provider
 public class Filter implements ContainerResponseFilter {
-
     @Override
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
         responseContext.getHeaders().putSingle("Access-Control-Allow-Origin", "*");

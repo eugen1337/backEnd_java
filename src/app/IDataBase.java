@@ -9,4 +9,6 @@ public interface IDataBase {
     int createTask(String login, int value1, int value2);
 
     boolean modifyTask(int id, int result, String status);
+
+    boolean deleteTask(int id);
 }

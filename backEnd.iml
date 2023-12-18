@@ -21,5 +21,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="mongodb.mongo.java.driver" level="project" />
     <orderEntry type="library" name="modules" level="project" />
+    <orderEntry type="library" name="io.jsonwebtoken.jjwt" level="project" />
   </component>
 </module>

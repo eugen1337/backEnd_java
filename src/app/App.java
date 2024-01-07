@@ -15,6 +15,7 @@ public class App implements IApp {
         setStorage(db);
         serviceMap = RegisterService.registerServices();
     }
+<<<<<<< Updated upstream
 
     public String route(String path, UserData params) {
         IService bc = serviceMap.get(path);
@@ -25,6 +26,15 @@ public class App implements IApp {
 
     public String execute(String path, DTO values) {
         return router.route("/calc", values);
+=======
+    @Override
+            .
+    public String register(User user) {
+        if(db.addUser(user.getLogin(), user.getPassword()))
+            return "ok";
+        else
+            return null;
+>>>>>>> Stashed changes
     }
 
     @Override

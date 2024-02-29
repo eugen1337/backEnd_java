@@ -15,7 +15,7 @@ public class Builder {
 
     public IApp buildApp() {
 
-        IDataBase db = back.Infrustructure.storage.Factory.createMongoStorage();
+        IDataBase db = back.Infrustructure.storage.PostgreFactory.createPostgreStorage();
         ITokenManager tm = back.Infrustructure.TokenManager.TMFactory.createTokenManager();
 
         IApp app = back.app.Factory.createApp();

@@ -3,6 +3,7 @@ package back.Infrustructure.storage;
 import back.app.IDataBase;
 
 import java.util.Date;
+import java.math.BigDecimal;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -115,7 +116,8 @@ public class MongoDB implements IDataBase {
             System.out.println("task connected");
             System.out.println("login = " + login);
 
-            int id = Long.valueOf(new Date().getTime() / 100).intValue();
+            int id = new BigDecimal(new Date().getTime() / 100 % 1000000000).intValueExact();
+
             Document doc = new Document("id", id).append("value1", value1).append("value2", value2)
                     .append("result", "null").append("status", "not started");
             task.insertOne(doc);

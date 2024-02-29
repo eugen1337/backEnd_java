@@ -11,7 +11,6 @@ back\Config.class
 back\app\ITokenManagerUsing.class
 back\Infrustructure\Built.class
 back\Infrustructure\endpoint\controllers\LoginController.class
-back\Infrustructure\storage\Factory.class
 back\Infrustructure\Message.class
 back\Infrustructure\TokenManager\TMFactory.class
 back\app\IApp.class

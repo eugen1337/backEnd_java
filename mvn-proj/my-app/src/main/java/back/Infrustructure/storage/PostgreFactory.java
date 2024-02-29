@@ -2,12 +2,12 @@ package back.Infrustructure.storage;
 
 import back.app.IDataBase;
 
-public class Factory {
+public class PostgreFactory {
     private static IDataBase instance = null;
 
-    public static IDataBase createMongoStorage() {
+    public static IDataBase createPostgreStorage() {
         if (instance == null) {
-            instance = new MongoDB();
+            instance = new PostgreDB();
         }
         return instance;
     }

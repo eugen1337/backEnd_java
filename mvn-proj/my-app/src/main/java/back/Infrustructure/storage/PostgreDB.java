@@ -5,12 +5,11 @@ import java.sql.*;
 import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
 
-import back.app.IDataBase;
 
 public class PostgreDB implements IDataBase {
     private final String url = "jdbc:postgresql://localhost:5432/test";
     private final String db_login = "postgres";
-    private final String db_password = "твой пароль";
+    private final String db_password = "1-5qwerty";
 
     private Connection getConnectionJDBC() throws Exception {
         try {
@@ -87,7 +86,8 @@ public class PostgreDB implements IDataBase {
                     Integer value2 = rs.getInt("value2");
                     String result = rs.getString("result");
                     String status = rs.getString("status");
-                    resultString += "{\"id\":" + id + ", \"value1\":" + value1 + ", \"value2\":" + value2 + ", \"result\":"
+                    resultString += "{\"id\":" + id + ", \"value1\":" + value1 + ", \"value2\":" + value2
+                            + ", \"result\":"
                             + result + ", \"status\":\"" + status + "\"},";
 
                 }

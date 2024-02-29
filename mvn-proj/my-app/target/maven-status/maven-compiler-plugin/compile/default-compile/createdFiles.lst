@@ -2,11 +2,9 @@ back\app\App.class
 back\app\Factory.class
 back\app\IDataBaseUsing.class
 back\Infrustructure\User.class
-back\app\ITokenManager.class
 back\Infrustructure\storage\MongoDB.class
 back\domain\ISum.class
 back\Server.class
-back\app\IDataBase.class
 back\Config.class
 back\app\ITokenManagerUsing.class
 back\Infrustructure\Built.class

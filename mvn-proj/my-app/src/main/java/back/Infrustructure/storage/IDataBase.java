@@ -1,4 +1,4 @@
-package back.app;
+package back.Infrustructure.storage;
 
 public interface IDataBase {
     boolean isRegistredUser(String login, String password);;

@@ -1,10 +1,10 @@
 package back.Infrustructure.TokenManager;
 
-import back.app.ITokenManager;
 import io.jsonwebtoken.Jwts;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+
 import java.util.HashMap;
 import java.util.Map;
 

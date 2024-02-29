@@ -5,19 +5,21 @@ import jakarta.ws.rs.core.HttpHeaders;
 
 import back.Infrustructure.Task;
 import back.app.IApp;
-
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 
 import back.Infrustructure.Builder;
-
+import back.Infrustructure.Built;
+import jakarta.inject.Inject;
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
 import jakarta.ws.rs.*;
 
 @Path("/tasks")
 public class TasksController {
+    @Inject
+    @Built
+    private IApp app;
+
     @Context
     private HttpHeaders headers;
 
@@ -25,9 +27,6 @@ public class TasksController {
     public Response getTasks() {
         try {
             String token = headers.getHeaderString(HttpHeaders.AUTHORIZATION).replace("Bearer ", "");
-
-            Builder builder = new Builder();
-            IApp app = builder.buildApp();
 
             if (!app.validateToken(token)) {
                 return Response.status(Response.Status.UNAUTHORIZED).entity("Ошибка авторизации").build();
@@ -51,9 +50,6 @@ public class TasksController {
             Task task = jsonb.fromJson(bodyJSON, Task.class);
             String token = headers.getHeaderString(HttpHeaders.AUTHORIZATION).replace("Bearer ", "");
 
-            Builder builder = new Builder();
-            IApp app = builder.buildApp();
-
             if (!app.validateToken(token)) {
                 return Response.status(Response.Status.UNAUTHORIZED).entity("Ошибка авторизации").build();
             }
@@ -76,9 +72,6 @@ public class TasksController {
         String token = headers.getHeaderString(HttpHeaders.AUTHORIZATION).replace("Bearer ", "");
         Jsonb jsonb = JsonbBuilder.create();
         try {
-            Builder builder = new Builder();
-            IApp app = builder.buildApp();
-
             if (!app.validateToken(token)) {
                 return Response.status(Response.Status.UNAUTHORIZED).entity("Ошибка авторизации").build();
             }

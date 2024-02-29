@@ -4,8 +4,9 @@ import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.HttpHeaders;
 
 import back.Infrustructure.Builder;
+import back.Infrustructure.Built;
 import back.app.IApp;
-
+import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -14,6 +15,10 @@ import jakarta.ws.rs.core.Response;
 
 @Path("/calc")
 public class CalcController {
+    @Inject
+    @Built
+    private IApp app;
+
     @Context
     private HttpHeaders headers;
 
@@ -22,9 +27,6 @@ public class CalcController {
     public Response calc(@QueryParam("id") int id, @QueryParam("a") int a, @QueryParam("b") int b) {
         try {
             String token = headers.getHeaderString(HttpHeaders.AUTHORIZATION).replace("Bearer ", "");
-
-            Builder builder = new Builder();
-            IApp app = builder.buildApp();
 
             if (!app.validateToken(token)) {
                 return Response.status(Response.Status.UNAUTHORIZED).entity("Ошибка авторизации").build();

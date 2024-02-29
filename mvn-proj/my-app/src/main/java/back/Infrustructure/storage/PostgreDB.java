@@ -3,13 +3,18 @@ package back.Infrustructure.storage;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.Date;
-import org.apache.commons.lang3.StringUtils;
 
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class PostgreDB implements IDataBase {
     private final String url = "jdbc:postgresql://localhost:5432/test";
     private final String db_login = "postgres";
     private final String db_password = "1-5qwerty";
+
+    private DataSource ds;
 
     private Connection getConnectionJDBC() throws Exception {
         try {
@@ -21,10 +26,21 @@ public class PostgreDB implements IDataBase {
         }
     }
 
+    private Connection getConnectionPool() throws Exception {
+        try {
+            InitialContext initialContext = new InitialContext();
+            ds = (DataSource) initialContext.lookup("jdbc/local_pg_test");
+            Connection conn = ds.getConnection();
+            return conn;
+        } catch (Exception e) {
+            throw new Exception("Exception in genConn()" + e.getMessage());
+        }
+    }
+
     @Override
     public boolean isRegistredUser(String login, String password) {
         try {
-            Connection conn = getConnectionJDBC();
+            Connection conn = getConnectionPool();
             try {
                 PreparedStatement st = conn.prepareStatement("SELECT * FROM users WHERE login = ? AND password = ?");
                 st.setString(1, login);

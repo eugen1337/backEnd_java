@@ -3,7 +3,6 @@ package back.Infrustructure.endpoint.controllers;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.HttpHeaders;
 
-import back.Infrustructure.Builder;
 import back.Infrustructure.Built;
 import back.app.IApp;
 import jakarta.inject.Inject;

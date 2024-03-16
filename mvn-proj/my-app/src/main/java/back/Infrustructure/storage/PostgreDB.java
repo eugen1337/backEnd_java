@@ -95,19 +95,22 @@ public class PostgreDB implements IDataBase {
                 ResultSet rs = st.executeQuery();
 
                 String resultString = "{\"docs\": [";
+                // проверяем есть ли элементы в сете
+                if (rs.isBeforeFirst()) {
 
-                while (rs.next()) {
-                    Integer id = rs.getInt("id");
-                    Integer value1 = rs.getInt("value1");
-                    Integer value2 = rs.getInt("value2");
-                    String result = rs.getString("result");
-                    String status = rs.getString("status");
-                    resultString += "{\"id\":" + id + ", \"value1\":" + value1 + ", \"value2\":" + value2
-                            + ", \"result\":"
-                            + result + ", \"status\":\"" + status + "\"},";
-
+                    while (rs.next()) {
+                        Integer id = rs.getInt("id");
+                        Integer value1 = rs.getInt("value1");
+                        Integer value2 = rs.getInt("value2");
+                        String result = rs.getString("result");
+                        String status = rs.getString("status");
+                        resultString += "{\"id\":" + id + ", \"value1\":" + value1 + ", \"value2\":" + value2
+                                + ", \"result\":"
+                                + result + ", \"status\":\"" + status + "\"},";
+                    }
+                    // отрезаем последний элемнт строки
+                    resultString = StringUtils.chop(resultString);
                 }
-                resultString = StringUtils.chop(resultString);
                 resultString += "]}";
 
                 System.out.println(resultString);
